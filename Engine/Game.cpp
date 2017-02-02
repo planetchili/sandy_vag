@@ -20,12 +20,23 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include "ContentsImpl.h"
 
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd )
 {
+	field.SpawnCircle<Sand>( 200,100,100 );
+	field.SpawnRectangle<Rock>( 175,210,50,5 );
+	field.SpawnRectangle<Rock>( 225,250,50,5 );
+	field.SpawnRectangle<Rock>( 175,300,50,5 );
+	field.SpawnRectangle<Rock>( 225,350,50,5 );
+
+	field.SpawnCircle<Sand>( 400,100,60 );
+	field.SpawnCircle<Rock>( 400,200,40 );
+	field.SpawnRectangle<Rock>( 350,300,80,10 );
+	field.SpawnRectangle<Rock>( 450,300,80,10 );
 }
 
 void Game::Go()
@@ -38,8 +49,10 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	field.Update();
 }
 
 void Game::ComposeFrame()
 {
+	field.Draw( gfx );
 }
