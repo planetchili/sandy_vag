@@ -50,6 +50,8 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	field.Update();
+	field.Update();
+	field.Update();
 }
 
 void Game::ComposeFrame()
